@@ -40,41 +40,7 @@ class Image{
     }
 }
 
-class Charts{
 
-    constructor(width, height, XData, YData)
-    {
-        this.width = width;
-        this.height = height;
-        this.XData = XData;
-        this.YData=YData;
-
-    }
-
-    CreateGraph()
-    {
-        var data =
-            {
-            labels: this.XData,
-            series: [this.YData]
-            };
-
-        var options = {
-            width:this.width,
-            height:this.height,
-            axisX:{
-                showGrid:true,
-                showLabel:true
-            },
-            axisY:{
-                offset: 60
-            }
-        };
-
-        new Chartist.Line('.ct-chart', data, options);
-
-    }
-}
 
 
 $(window).bind("load", function() {
@@ -86,19 +52,6 @@ $(window).bind("load", function() {
     obj.backgroundImage();
     obj.centerTitle();
 
-    // Charts
-    var XData = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
-
-    // Ajax call to get the Data from Flask
-    var requests = $.get('/Sensor/data');
-
-    var tm = requests.done(function (result) {
-
-        console.log("TEMPERATURE", result.temperature);
-        var chart  = new Charts(200,200, XData, result.temperature);
-        chart.CreateGraph();
-
-    })
 
 }); // ready function closed
 

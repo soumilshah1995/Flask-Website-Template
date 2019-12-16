@@ -16,7 +16,7 @@ except Exception as e:
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "mysecretkey"
-app.register_blueprint(sensor_blueprint, url_prefix="/Sensor")
-app.register_blueprint(humidity_blueprint, url_prefix="/Humidity")
+
+
 
 # app.register_blueprint(result_blueprint, url_prefix="/Result")
